@@ -1,14 +1,20 @@
 body{
     margin: auto;
-    background-color: rebeccapurple;
+    background-color: #414D76;
 }
 
 #container{
-    width: 40%;
-    background-color: aqua;
+    width: 80%;
+    background-image: url(/background.png);
     margin: auto;
+}
+
+#inside{
+    background-color: #ACC98B;
+    height: fit-content;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
+    width: fit-content;
     align-items: center;
-    height: 100vh;
+    margin: auto;
 }

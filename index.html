@@ -7,28 +7,39 @@
 </head>
 <body>
   <div id="container">
-  <h1>GIF time</h1>
+    <div id="inside">
+  <h1>GIF API</h1>
   <br>
   <img src="#">
   <br>
   <button onclick=newImage()>New GIF</button>
 <br>
-  <label for="search">Search term (one word only)</label>
+  <label for="search">Search term(s)</label>
   <input type="text" name="search" id="srch" value="cats">
   <br>
-  <label for="number">Weirdness level (1-10)</label>
-  <input type="number" name="number" id="num" min=0 max=10 value="0">
-  <br>
+</div>
 </div>
 </body>
+
+
+
+<!-- JS on API calls -->
+
+
 <script>
+
     const img = document.querySelector('img');
 
+  //making an API call with a promise
+  //using fetch for the call, and .then for the promise
+  //no error catching on this one
 
-    function newImage(){
+  /*  
+  function newImage(){
       let text = document.getElementById("srch").value;
-    let num = parseInt(document.getElementById("num").value);
-    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=mHGoGQ8ruy8tOm3ZKwwGyVZzLky2wMMn&s=${text}&weirdness=${num}`, {mode: 'cors'})
+    // let num = parseInt(document.getElementById("num").value);
+    // fetch(`https://api.giphy.com/v1/gifs/translate?api_key=mHGoGQ8ruy8tOm3ZKwwGyVZzLky2wMMn&s=${text}&weirdness=${num}`, {mode: 'cors'})
+    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=mHGoGQ8ruy8tOm3ZKwwGyVZzLky2wMMn&s=${text}`, {mode: 'cors'})
       .then(function(response) {
         return response.json();
       })
@@ -37,7 +48,27 @@
       }
       );
     }
+    */
+
+
+  //making an API call with ASYNC and AWAIT
+  //converting promise code into async/await code
+
+  //make async function to wrap call into function so can call await (doesnt work globally)
+
+  async function newImage(){
+    let text = document.getElementById("srch").value;
+    const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=mHGoGQ8ruy8tOm3ZKwwGyVZzLky2wMMn&s=${text}`, {mode: 'cors'})
+    const gifdata = await response.json();
+    img.src = gifdata.data.images.original.url;
+  }
+
+
       
       newImage();
+
+
+
+    
   </script>
 </html>

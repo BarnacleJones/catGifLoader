@@ -1,7 +1,7 @@
 # catGifLoader
 
 
-A tiny project following the odon project lesson on API calls.
+A tiny project following the odin project lesson on API calls.
 
 Live demo:
 
