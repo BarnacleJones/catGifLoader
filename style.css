@@ -7,6 +7,7 @@ body{
     width: 80%;
     background-image: url(/background.png);
     margin: auto;
+    /* height: 60vh; */
 }
 
 #inside{
@@ -17,4 +18,8 @@ body{
     width: fit-content;
     align-items: center;
     margin: auto;
+}
+
+img{
+    width:100%;
 }

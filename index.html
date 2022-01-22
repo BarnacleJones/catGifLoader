@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cat GIF loader</title>
+  <title>GIF loader</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
 <br>
   <label for="search">Search term(s)</label>
   <input type="text" name="search" id="srch" value="cats">
-  <br>
+  
 </div>
 </div>
 </body>
@@ -60,6 +60,8 @@
     let text = document.getElementById("srch").value;
     const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=mHGoGQ8ruy8tOm3ZKwwGyVZzLky2wMMn&s=${text}`, {mode: 'cors'})
     const gifdata = await response.json();
+    //to see full available info from object returned
+    console.log(gifdata)
     img.src = gifdata.data.images.original.url;
   }
 
